@@ -1,1 +1,109 @@
-ECHO is on.
+{% extends "master.html" %}
+{% block title %}Home{% endblock title %}
+{% block body %}
+<style>
+    
+    /* Hero Section */
+    .hero {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 4rem 2rem;
+    }
+    .hero-content {
+      max-width: 600px;
+    }
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: var(--primary-color);
+    }
+    .hero p {
+      font-size: 1.125rem;
+      margin-bottom: 2rem;
+      line-height: 1.5;
+    }
+    .hero .btn {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      font-weight: 600;
+      color: white;
+      background: var(--primary-color);
+      border-radius: 0.5rem;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .hero .btn:hover {
+      background: var(--accent-color);
+    }
+    /* CRUD Cards */
+    .actions {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+    .card {
+      background: white;
+      border-radius: 1rem;
+      padding: 2rem;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+      text-align: center;
+      transition: transform 0.2s;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+    }
+    .card h3 {
+      font-size: 1.25rem;
+      margin-bottom: 0.75rem;
+      color: var(--primary-color);
+    }
+    .card p {
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
+    }
+    .card a {
+      font-weight: 600;
+      color: var(--accent-color);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .card a:hover {
+      color: var(--primary-color);
+    }
+  </style>
+
+<section class="hero">
+    <div class="hero-content">
+      <h1>Welcome to Your CRUD Dashboard</h1>
+      <p>Manage your data effortlessly with our intuitive interface. Perform Create, Read, Update, and Delete operations seamlessly.</p>
+      <a href="/create" class="btn">Get Started</a>
+      <div class="actions">
+        <div class="card">
+          <h3>Create</h3>
+          <p>Add new records to your database quickly and easily.</p>
+          <a href="/create">Go to Create →</a>
+        </div>
+        <div class="card">
+          <h3>Read</h3>
+          <p>Browse and search existing records with powerful filters.</p>
+          <a href="/read">Go to Read →</a>
+        </div>
+        <div class="card">
+          <h3>Update</h3>
+          <p>Edit and maintain your records to keep data up-to-date.</p>
+          <a href="/update">Go to Update →</a>
+        </div>
+        <div class="card">
+          <h3>Delete</h3>
+          <p>Remove outdated or unwanted records securely.</p>
+          <a href="/delete">Go to Delete →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock body %}

@@ -1,1 +1,43 @@
-ECHO is on.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{% block title %} {% endblock title %}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-color: #4f46e5;
+      --accent-color: #6366f1;
+      --text-color: #333;
+      --bg-gradient-start: #eef2ff;
+      --bg-gradient-end: #e0e7ff;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--text-color);
+      background: linear-gradient(135deg, var(--bg-gradient-start), var(--bg-gradient-end));
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    
+  </style>
+</head>
+<body>
+  {% include "navbar.html" %}
+  {% block body %}
+  
+  {% endblock body %}
+
+ 
+</body>
+</html>
