@@ -19,11 +19,22 @@ def productList(request):
     productData = productModel.objects.all()
     return render(request, 'productList.html', {'product': productData})
 
-def editProduct(request):
-    return render(request, 'editProduct.html')
+def editProduct(request, id):
+    productData = productModel.objects.get(id=id)
+    if request.method == 'POST':
+        product = productModel(
+            id = id,
+            productName = request.POST.get('productName'),
+            category = request.POST.get('category'),
+            price = request.POST.get('price'),
+        )
+        product.save()
+        return redirect('productList')
+    return render(request, 'editProduct.html', {'product': productData})
 
-def deleteProduct(request):
-    return redirect('productList.html')
+def deleteProduct(request, id):
+    product = productModel.objects.get(id=id).delete()
+    return redirect('productList')
 
 def viewProduct(request):
     return render(request, 'viewProduct.html')
