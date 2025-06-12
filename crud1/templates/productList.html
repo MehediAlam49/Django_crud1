@@ -68,7 +68,7 @@
             <td>
               <a href="{% url "editProduct" product.id %}" class="btn-action btn-edit">Edit</a>
               <a href="{% url "deleteProduct" product.id %}" class="btn-action btn-delete">Delete</a>
-              <a href="#" class="btn-action btn-view">View</a>
+              <a href="{% url "viewProduct" product.id %}" class="btn-action btn-view">View</a>
             </td>
           </tr>
         {% endfor %}

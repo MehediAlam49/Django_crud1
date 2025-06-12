@@ -36,5 +36,6 @@ def deleteProduct(request, id):
     product = productModel.objects.get(id=id).delete()
     return redirect('productList')
 
-def viewProduct(request):
-    return render(request, 'viewProduct.html')
+def viewProduct(request, id):
+    productData = productModel.objects.get(id=id)
+    return render(request, 'viewProduct.html', {'product': productData})
