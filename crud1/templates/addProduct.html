@@ -1,78 +1,80 @@
-{% extends "master.html" %}
-{% block title %}Product-List{% endblock title %}
-{% block body %}
+{% extends "master.html" %} {% block title %}Product-List{% endblock title %} 
+{%block body %}
 <style>
-    .form-container {
-        max-width: 600px;
-        margin: 4rem auto;
-        background: white;
-        padding: 2rem;
-        border-radius: 1rem;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-      }
-      .form-container h2 {
-        margin-bottom: 1.5rem;
-        color: var(--primary-color);
-      }
-      .form-group {
-        margin-bottom: 1rem;
-      }
-      .form-group label {
-        display: block;
-        margin-bottom: 0.5rem;
-        font-weight: 600;
-      }
-      .form-group input, .form-group select {
-        width: 100%;
-        padding: 0.75rem;
-        border: 1px solid #ccc;
-        border-radius: 0.5rem;
-        font-size: 1rem;
-      }
-      .form-group input:focus, .form-group select:focus {
-        border-color: var(--primary-color);
-        outline: none;
-        box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
-      }
-      .form-group button {
-        padding: 0.75rem 1.5rem;
-        background-color: var(--primary-color);
-        color: white;
-        font-size: 1rem;
-        font-weight: 600;
-        border: none;
-        border-radius: 0.5rem;
-        cursor: pointer;
-        transition: background 0.2s;
-      }
-      .form-group button:hover {
-        background-color: var(--accent-color);
-      }
+  .form-container {
+    max-width: 600px;
+    margin: 4rem auto;
+    background: white;
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  }
+  .form-container h2 {
+    margin-bottom: 1.5rem;
+    color: var(--primary-color);
+  }
+  .form-group {
+    margin-bottom: 1rem;
+  }
+  .form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+  }
+  .form-group input,
+  .form-group select {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+  }
+  .form-group input:focus,
+  .form-group select:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+  }
+  .form-group button {
+    padding: 0.75rem 1.5rem;
+    background-color: var(--primary-color);
+    color: white;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  .form-group button:hover {
+    background-color: var(--accent-color);
+  }
 </style>
 
 <section class="form-container">
-    <h2>Add New Product</h2>
-    <form action="" method="POST">
-      <div class="form-group">
-        <label for="productName">Product Name</label>
-        <input type="text" id="productName" name="productName" required>
-      </div>
-      <div class="form-group">
-        <label for="category">Category</label>
-        <select id="category" name="category" required>
-          <option value="">Select category</option>
-          <option value="Clothing">Clothing</option>
-          <option value="Electronics">Electronics</option>
-          <option value="Kitchen">Kitchen</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label for="price">Price</label>
-        <input type="number" id="price" name="price" step="0.01" required>
-      </div>
-      <div class="form-group">
-        <button type="submit">Add Product</button>
-      </div>
-    </form>
-  </section>
+  <h2>Add New Product</h2>
+  <form action="" method="POST">
+    {% csrf_token %}
+    <div class="form-group">
+      <label for="productName">Product Name</label>
+      <input type="text" id="productName" name="productName" required />
+    </div>
+    <div class="form-group">
+      <label for="category">Category</label>
+      <select id="category" name="category" required>
+        <option value="">Select category</option>
+        <option value="Clothing">Clothing</option>
+        <option value="Electronics">Electronics</option>
+        <option value="Kitchen">Kitchen</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="price">Price</label>
+      <input type="number" id="price" name="price" step="0.01" required />
+    </div>
+    <div class="form-group">
+      <button type="submit">Add Product</button>
+    </div>
+  </form>
+</section>
 {% endblock body %}

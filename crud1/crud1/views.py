@@ -5,6 +5,14 @@ def home(request):
     return render(request, 'home.html')
 
 def addProduct(request):
+    if request.method == 'POST':
+        product = productModel(
+            productName = request.POST.get('productName'),
+            category = request.POST.get('category'),
+            price = request.POST.get('price'),
+        )
+        product.save()
+        return redirect('productList')
     return render(request, 'addProduct.html')
 
 def productList(request):
